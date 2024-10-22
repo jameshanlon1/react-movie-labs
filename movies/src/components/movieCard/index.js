@@ -32,6 +32,11 @@ export default function MovieCard({movie, action}) {
     addToFavorites(movie);
   };
 
+  const handleAddToPlaylist = (e) => {
+    e.preventDefault();
+    //addToplaylist(movie);
+  };
+
 
   return (
     <Card>
@@ -77,22 +82,14 @@ export default function MovieCard({movie, action}) {
       <CardActions disableSpacing>
       
         {action(movie)}
-      <CardContent>
-        <Grid container>
-        <Grid size={{xs: 6}}>
-            <Button size="large" color="primary">
-              <PlaylistAddIcon style={{ fontSize: '50px' }}/>
-              </Button>
-          </Grid>
-          <Grid size={{xs: 6}}>
-        <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
-        </Link>
-        </Grid>
-        </Grid>
-        </CardContent>
+
+
+      <Link to={`/movies/${movie.id}`}>
+        <Button variant="outlined" size="medium" color="primary">
+          More Info ...
+        </Button>
+      </Link>
+
       </CardActions>
     </Card>
   );
