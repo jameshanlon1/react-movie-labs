@@ -15,6 +15,8 @@ import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid2";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+
 
 export default function MovieCard({movie, action}) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
@@ -29,6 +31,8 @@ export default function MovieCard({movie, action}) {
     e.preventDefault();
     addToFavorites(movie);
   };
+
+
   return (
     <Card>
       <CardHeader
@@ -67,18 +71,28 @@ export default function MovieCard({movie, action}) {
               {"  "} {movie.vote_average}{" "}
             </Typography>
           </Grid>
+          
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
       
         {action(movie)}
-      
+      <CardContent>
+        <Grid container>
+        <Grid size={{xs: 6}}>
+            <Button size="large" color="primary">
+              <PlaylistAddIcon style={{ fontSize: '50px' }}/>
+              </Button>
+          </Grid>
+          <Grid size={{xs: 6}}>
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
-        
+        </Grid>
+        </Grid>
+        </CardContent>
       </CardActions>
     </Card>
   );
