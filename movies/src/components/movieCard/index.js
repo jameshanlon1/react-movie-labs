@@ -20,6 +20,10 @@ import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 export default function MovieCard({movie, action}) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { playlists, addToPlaylists } = useContext(MoviesContext);
+
+
+
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
@@ -32,9 +36,17 @@ export default function MovieCard({movie, action}) {
     addToFavorites(movie);
   };
 
+  if (playlists.find((id) => id === movie.id)) {
+    movie.playlist = true;
+  } else {
+    movie.playlist = false
+  }
+
   const handleAddToPlaylist = (e) => {
     e.preventDefault();
-    //addToplaylist(movie);
+    addToPlaylists(movie.id);
+    console.log("Must Watch List:", playlists);
+    
   };
 
 
