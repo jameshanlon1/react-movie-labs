@@ -11,6 +11,7 @@ const TemplateMoviePage = ({ movie, children }) => {
     ["images", { id: movie.id }],
     getMovieImages
   );
+  
 
   if (isLoading) {
     return <Spinner />;
