@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner"; 
-import {getActors } from "../api/tmdb-api"; 
+import {getMovieActors } from "../api/tmdb-api"; 
 import PageTemplate from '../components/templateActorListPage';
 
 
@@ -16,7 +16,7 @@ const MovieActorsPage = () => {
     error: castError,
     isLoading: isCastLoading,
     isError: isCastError,
-  } = useQuery(["movieCast", { id }], () => getActors(id));
+  } = useQuery(["movieCast", { id }], () => getMovieActors(id));
 
   // Handle loading and error states for both queries
   if ( isCastLoading) {
@@ -36,7 +36,7 @@ const MovieActorsPage = () => {
 
   return (
     <PageTemplate
-    title="Discover Actors"
+    title="Movie Actors"
     actors={actors}
   />
   );
