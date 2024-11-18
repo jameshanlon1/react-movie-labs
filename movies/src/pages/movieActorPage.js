@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner"; 
 import {getActors } from "../api/tmdb-api"; 
-import MovieActors from "../components/movieActors";
+import PageTemplate from '../components/templateActorListPage';
+
 
 const MovieActorsPage = () => {
   const { id } = useParams();
@@ -34,8 +35,12 @@ const MovieActorsPage = () => {
   const actors = castData?.cast || [];
 
   return (
-        <MovieActors actors={actors} />
+    <PageTemplate
+    title="Discover Actors"
+    actors={actors}
+  />
   );
 };
 
 export default MovieActorsPage;
+

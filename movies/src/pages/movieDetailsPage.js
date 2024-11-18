@@ -48,7 +48,7 @@ const MoviePage = (props) => {
             <div style={{ padding: "15px" }}>
                     {/* Button inside Link */}
               <Link to={`/movies/${id}/actors`}>
-                  <button style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', borderRadius: '5px' }}>
+                  <button style={{ padding: '10px 20px', backgroundColor: '#1976D2', color: 'white', borderRadius: '10px' }}>
                     Actors in Movie
                   </button>
               </Link>
