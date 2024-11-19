@@ -6,7 +6,6 @@ import { getMovie, getRecommendedMovies } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import MovieRecommendations from "../components/movieRecommendation";
-import { Link } from "react-router-dom";
 
 
 const MoviePage = (props) => {
@@ -45,16 +44,8 @@ const MoviePage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            <div style={{ padding: "15px" }}>
-                    {/* Button inside Link */}
-              <Link to={`/movies/${id}/actors`}>
-                  <button style={{ padding: '10px 20px', backgroundColor: '#1976D2', color: 'white', borderRadius: '10px' }}>
-                    Actors in Movie
-                  </button>
-              </Link>
               <h2>Recommended Movies</h2>
               <MovieRecommendations movies={movieRecommendationsData} />
-            </div>
           </PageTemplate>
         </>
       ) : (

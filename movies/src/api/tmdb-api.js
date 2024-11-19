@@ -238,3 +238,22 @@ export const getActor = (args) => {
       throw error;
     });
 };
+
+
+export const getActorMovies = (actorID) => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/${actorID}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((errorData) => {
+          throw new Error(errorData.message || "Failed to fetch actor movies");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching actor movies:", error);
+      throw error;
+    });
+};

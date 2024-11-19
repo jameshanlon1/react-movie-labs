@@ -10,6 +10,9 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+
 
 const root = {
     display: "flex",
@@ -93,6 +96,12 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
+      <br></br>
+      <Link to={`/movies/${movie.id}/actors`}>
+        <Button variant="outlined" size="medium" color="primary">
+          Actors in Movie...
+        </Button>
+      </Link>
       </>
   );
 };
