@@ -50,7 +50,7 @@ export default function ActorCard({actor}) {
       
       
 
-      <Link to={`/actors/${actor.id}`}>
+      <Link to={`/movies/actors/${actor.id}`}>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...
         </Button>

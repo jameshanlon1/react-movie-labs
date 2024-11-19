@@ -11,7 +11,7 @@ const ActorPage = (props) => {
         error: castError,
         isLoading: isCastLoading,
         isError: isCastError,
-      } = useQuery("movieCast",  getActors);
+      } = useQuery("actors",  getActors);
     
       // Handle loading and error states for both queries
       if ( isCastLoading) {
