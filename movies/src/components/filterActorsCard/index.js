@@ -4,6 +4,10 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const FilterActorCard = ({filter, setFilter}) => {  
 
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
   return(
 <>
       {/* Gender Filter Dropdown */}
@@ -13,7 +17,7 @@ const FilterActorCard = ({filter, setFilter}) => {
           labelId="filter-select-label"
           id="gender-select"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={handleFilterChange}
         >
           <MenuItem value="popular">Poular</MenuItem>
           <MenuItem value="1">Female</MenuItem>
