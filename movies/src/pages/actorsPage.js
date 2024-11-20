@@ -1,39 +1,51 @@
-import React from "react";
+import React, {useState} from "react";
 import { getActors } from "../api/tmdb-api";
 import PageTemplate from '../components/templateActorListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
+import FilterActorCard from "../components/filterActorsCard";
+
 
 const ActorPage = (props) => {
+  const [filter, setFilter] = useState("popular"); //filter set to popukar defaulf
 
     const {
-        data: castData,
-        error: castError,
-        isLoading: isCastLoading,
-        isError: isCastError,
-      } = useQuery("actors",  getActors);
+        data: actorData,
+        error, 
+        isLoading,
+        isError,
+      } = useQuery("actors",  getActors)
     
       // Handle loading and error states for both queries
-      if ( isCastLoading) {
+      if ( isLoading) {
         return <Spinner />;
       }
     
-      if (castError) {
-        return <h1>{castError.message}</h1>;
+      if (error) {
+        return <h1>{error.message}</h1>;
       }
     
-      if (isCastError) {
-        return <h1>{castError.message}</h1>;
+      if (isError) {
+        return <h1>{error.message}</h1>;
       }
 
-  const actors = castData?.results;
+  const actors = actorData?.results.filter((actor) => {
+    if (filter === "popular") return true; 
+    return actor.gender === parseInt(filter); //filter by value 1 and 2
+  });
 
 
   return (
+    <>
+
+    <FilterActorCard filter={filter} setFilter={setFilter} />
+
     <PageTemplate
       title="Discover Actors"
       actors={actors}
     />
+    </>
+  
 );
 };
 export default ActorPage;

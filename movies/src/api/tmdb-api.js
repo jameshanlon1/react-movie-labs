@@ -257,3 +257,55 @@ export const getActorMovies = (actorID) => {
       throw error;
     });
 };
+
+
+export const getMaleActors = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&gender=2`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getFemaleActors = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&gender=1`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getActorsByGender = (gender) => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&gender=${gender}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
