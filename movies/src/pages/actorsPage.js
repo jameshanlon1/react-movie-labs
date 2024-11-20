@@ -36,15 +36,17 @@ const ActorPage = (props) => {
 
 
   return (
-    <>
-
-    <FilterActorCard filter={filter} setFilter={setFilter} />
+    
 
     <PageTemplate
       title="Discover Actors"
-      actors={actors}
-    />
-    </>
+      actors={actors}>
+
+      <FilterActorCard filter={filter} setFilter={setFilter} />
+
+      </PageTemplate>
+    
+    
   
 );
 };

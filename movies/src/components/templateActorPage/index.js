@@ -3,10 +3,8 @@ import Spinner from '../spinner'
 import Grid from "@mui/material/Grid2";
 import { getActorImages } from "../../api/tmdb-api";
 import ActorHeader from "../headerActor";
-import FilterActorCard from "../filterActorsCard";
 
-
-const TemplateActorPage = ({ actor, children, filter, setFilter }) => {
+const TemplateActorPage = ({ actor, children }) => {
   const { data , error, isLoading, isError } = useQuery(
     ["image", { id: actor.id }],
     getActorImages
@@ -25,8 +23,7 @@ const TemplateActorPage = ({ actor, children, filter, setFilter }) => {
   return (
     <>
       <ActorHeader actor={actor} />
-      <FilterActorCard filter={filter} setFilter={setFilter} />
-
+    
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         {/* Display the first image */}
