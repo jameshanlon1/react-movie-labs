@@ -7,12 +7,12 @@ import FilterActorCard from "../filterActorsCard";
 
 
 function ActorListPageTemplate({ actors, title, action, children }) {
-  const [filter, setFilter] = useState("popular"); //filter set to popukar defaulf
+  const [filter, setFilter] = useState("all"); //filter set to popukar defaulf
 
 
   let displayedActors = actors
   .filter((actor) => {
-    if (filter === "popular") return true; 
+    if (filter === "all") return true; 
     return actor.gender === parseInt(filter); //filter by value 1 and 2
   });
 

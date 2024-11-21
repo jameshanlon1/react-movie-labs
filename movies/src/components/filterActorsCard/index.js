@@ -12,14 +12,15 @@ const FilterActorCard = ({filter, setFilter}) => {
 <>
       {/* Gender Filter Dropdown */}
       <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
-        <InputLabel id="filter-select-label">Filter</InputLabel>
+        <InputLabel id="filter-select-label">Most Popular</InputLabel>
         <Select
           labelId="filter-select-label"
           id="gender-select"
+          defaultValue="all"
           value={filter}
           onChange={handleFilterChange}
         >
-          <MenuItem value="popular">Poular</MenuItem>
+          <MenuItem value="all">All</MenuItem>
           <MenuItem value="1">Female</MenuItem>
           <MenuItem value="2">Male</MenuItem>
         </Select>

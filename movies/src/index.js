@@ -16,6 +16,7 @@ import TopRated from './pages/topRatedMoviesPage';
 import MovieActorsPage from './pages/movieActorPage';
 import ActorPage from './pages/actorsPage';
 import ActorDetailPage from './pages/actorDetailsPage';
+import SearchPage from './pages/searchPage';
 
 
 const queryClient = new QueryClient({
@@ -48,6 +49,9 @@ const App = () => {
             
             <Route path="/movies/:id/actors" element={ <MovieActorsPage /> } />
             <Route path="/movies/actors" element={ <ActorPage /> } />
+
+            <Route path="/movies/search" element={ <SearchPage /> } />
+
 
             
             <Route path="*" element={ <Navigate to="/" /> } />

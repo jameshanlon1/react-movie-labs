@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -29,7 +30,8 @@ const SiteHeader = ({ history }) => {
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Trending Today", path: "/movies/trending/today" },
     { label: "Top Rated", path: "/movies/ratings" },
-    { label: "Actors", path: "/movies/actors" }
+    { label: "Actors", path: "/movies/actors" },
+    { label: <SearchIcon />, path: "/movies/search" }
 
 
   ];
