@@ -1,5 +1,5 @@
 import React from "react";
-import { getMovies } from "../api/tmdb-api";
+import { searchMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateSearchPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
@@ -14,7 +14,7 @@ const SearchPage = (props) => {
         error, 
         isLoading,
         isError,
-      } = useQuery("search",  getMovies)
+      } = useQuery("search",  searchMovies)
     
       // Handle loading and error states for both queries
       if ( isLoading) {

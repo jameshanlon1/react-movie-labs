@@ -10,7 +10,7 @@ const formControl =
     backgroundColor: "rgb(255, 255, 255)"
   };
 
-export default function SaerchMoviesCard(props) {
+export default function SearchMoviesCard(props) {
 
 
   const handleChange = (e, type, value) => {
