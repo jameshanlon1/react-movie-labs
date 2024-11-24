@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid2";
 import SearchMoviesCard from "../searchMovies";
 import { searchMovies } from "../../api/tmdb-api";
 
-function MovieSearchPageTemplate({ movies, title, action }) {
+function MovieSearchPageTemplate({ title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [displayedMovies, setDisplayedMovies] = useState([]);
 
@@ -23,11 +23,11 @@ function MovieSearchPageTemplate({ movies, title, action }) {
     if (type === "name") {
       setNameFilter(value);
         if (value.trim()) {
-            const results = await searchMovies(value); // Fetch from TMDb API
-            setDisplayedMovies(results); // Update displayed movies with API results
+            const data = await searchMovies(value); // gets from api
+            setDisplayedMovies(data.results || []); // results from api get displayed
 
         } else {
-          setDisplayedMovies([]); // Clear displayed movies if input is empty
+          setDisplayedMovies([]); // when empty, clear 
         }
       }
     
