@@ -19,13 +19,9 @@ const MoviePage = (props) => {
     isError,
 } = useQuery(["movie", { id: id }], getMovie);
 
-  // Query for recommended movies
   const { data: recommendationsData, movieError, movieIsLoading, movieIsError } = useQuery(
     ["recommendations", { id }],
-    () => getRecommendedMovies(id),
-    {
-      enabled: !!id  // Ensures the query only runs if 'id' is defined
-    }
+    () => getRecommendedMovies(id)
   );
 
   if (isLoading || movieIsLoading) {

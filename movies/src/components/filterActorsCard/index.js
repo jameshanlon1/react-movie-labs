@@ -10,7 +10,7 @@ const FilterActorCard = ({filter, setFilter}) => {
   };
   return(
 <>
-      {/* Gender Filter Dropdown */}
+      {/* filter dropdown */}
       <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
         <InputLabel id="filter-select-label">Most Popular</InputLabel>
         <Select

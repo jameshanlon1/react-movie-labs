@@ -21,7 +21,6 @@ const SignupPage = () => {
 
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredentails) => {
-            //signed in here
             const user = userCredentails.user;
             navigate("/movies/login")
         

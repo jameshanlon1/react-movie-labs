@@ -42,7 +42,7 @@ if (isError || movieIsError) {
 }
 
 
-// const actorMovies = actedIn?.results || [];
+const actorMovies = actedIn?.cast || [];
 
   return (
     <>
@@ -51,8 +51,8 @@ if (isError || movieIsError) {
           <PageTemplate actor={actor}>
             <ActorDetails actor={actor} />
 
-            {/* <h2>Actor Movies</h2>
-              <ActorMovies actors={actorMovies} /> */}
+            <h2>Actor Movies</h2>
+              <ActorMovies actors={actorMovies} />
           </PageTemplate>
         </>
       ) : (

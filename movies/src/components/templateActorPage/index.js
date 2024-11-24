@@ -26,7 +26,7 @@ const TemplateActorPage = ({ actor, children }) => {
     
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
-        {/* Display the first image */}
+        {/*display only first image from images*/}
         <Grid size={{ xs: 3 }}>
           <div
             style={{
