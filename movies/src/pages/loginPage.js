@@ -1,24 +1,34 @@
-import React, { useState } from "react";
-import {
-  Container,
-  TextField,
-  Button,
-  Link,
-  Typography,
-  Box,
-} from "@mui/material";
+import React, { useState,useEffect } from "react";
+import Container from "@mui/material/Container";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { NavLink, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
+import { signOut } from "firebase/auth";
 import {auth} from "../firebase"
 import { signInUser } from "../firebase";
 
 const LoginPage = () => {
-    const navigate = useNavigate();
+const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
 
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user)=> {
+            if(user){
+                setUser(user);
+            }else{
+                setUser(null);
+            }
+  })
+    });
+ 
     const onLogin = (e) =>{
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -33,8 +43,30 @@ const LoginPage = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
         });
-    
+    };
+
+        const logout = () => {
+            signOut(auth).then(() =>{
+                navigate("/movies/login");
+                    console.log("Signed out")
+
+            }).catch((error)=> {
+            });
+        
+        
   };
+  if (user){
+    return(
+        <>
+        <Typography>
+            You are already Logged In.
+        </Typography>
+        <button onClick={logout}>
+            Logout
+        </button>
+        </>
+    )
+  }
   return (
     <>
     <Paper 
@@ -97,5 +129,6 @@ const LoginPage = () => {
     </>
   );
 };
+
 
 export default LoginPage;
