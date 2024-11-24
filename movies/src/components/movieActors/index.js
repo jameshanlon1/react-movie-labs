@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid2";
 import { Link } from "react-router-dom";
 
-function MovieActors({ actors }) {
+const MovieActors = ({ actors }) => {
   return (
     <Grid container spacing={2}>
       {actors.map((actor) => (

@@ -17,6 +17,8 @@ import MovieActorsPage from './pages/movieActorPage';
 import ActorPage from './pages/actorsPage';
 import ActorDetailPage from './pages/actorDetailsPage';
 import SearchPage from './pages/searchPage';
+import SignupPage from './pages/signupPage';
+import LoginPage from './pages/loginPage';
 
 
 const queryClient = new QueryClient({
@@ -53,6 +55,9 @@ const App = () => {
             <Route path="/movies/search" element={ <SearchPage /> } />
 
 
+            <Route path="/movies/signup" element={<SignupPage/>} />
+            <Route path="/movies/login" element={<LoginPage/>} />
+
             
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
@@ -65,3 +70,4 @@ const App = () => {
 
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
+

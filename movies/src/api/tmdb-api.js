@@ -1,4 +1,3 @@
-import { Query } from "react-query";
 
 export const getMovies = () => {
   return fetch(
@@ -165,9 +164,12 @@ export const getRecommendedMovies = (movieId) => {
 
 
 
-export const getMovieActors = (movieId) => {  
+export const getMovieActors = (args) => {
+    //console.log(args)
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;  
   return fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   )
     .then((response) => {
       if (!response.ok) {

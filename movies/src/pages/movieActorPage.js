@@ -9,30 +9,27 @@ import PageTemplate from '../components/templateActorListPage';
 const MovieActorsPage = () => {
   const { id } = useParams();
 
-
-
   const {
-    data: castData,
-    error: castError,
-    isLoading: isCastLoading,
-    isError: isCastError,
-  } = useQuery(["movieCast", { id }], () => getMovieActors(id));
+    data: aData,
+    error, 
+    isLoading,
+    isError,
+  } = useQuery(["movieCast", { id: id }], getMovieActors);
 
-  // Handle loading and error states for both queries
-  if ( isCastLoading) {
+  if ( isLoading) {
     return <Spinner />;
   }
 
-  if (castError) {
-    return <h1>{castError.message}</h1>;
+  if (error) {
+    return <h1>{error.message}</h1>;
   }
 
-  if (isCastError) {
-    return <h1>{castError.message}</h1>;
+  if (isError) {
+    return <h1>{error.message}</h1>;
   }
 
-  // Safely access the cast array (defaults to an empty array if missing)
-  const actors = castData?.cast || [];
+  // access the array of actors
+  const actors = aData?.cast || [];
 
   return (
     <PageTemplate
