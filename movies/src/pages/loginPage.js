@@ -57,14 +57,25 @@ const navigate = useNavigate();
   };
   if (user){
     return(
-        <>
-        <Typography>
-            You are already Logged In.
-        </Typography>
-        <button onClick={logout}>
-            Logout
-        </button>
-        </>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <Typography variant="h6" component="p" style={{ marginBottom: '10px' }}>
+          You are already logged in successfully. Enjoy the website.
+      </Typography>
+      <button 
+          onClick={logout} 
+          style={{
+              padding: '10px 20px',
+              backgroundColor: '#007BFF',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              fontSize: '16px',
+          }}
+      >
+          Logout
+      </button>
+  </div>
     )
   }
   return (
