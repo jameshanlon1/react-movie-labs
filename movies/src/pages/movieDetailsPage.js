@@ -6,6 +6,7 @@ import { getMovie, getRecommendedMovies } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import MovieRecommendations from "../components/movieRecommendation";
+import Typography from "@mui/material/Typography";
 
 
 const MoviePage = (props) => {
@@ -40,7 +41,9 @@ const MoviePage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-              <h2>Recommended Movies</h2>
+            <Typography variant="h4" component="h3">
+            Recommendations
+          </Typography>
               <MovieRecommendations movies={movieRecommendationsData} />
           </PageTemplate>
         </>

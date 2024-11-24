@@ -7,6 +7,8 @@ import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import ActorMovies from '../components/actorMovies';
 import { getActorMovies } from '../api/tmdb-api';
+import Typography from "@mui/material/Typography";
+
 
 
 const ActorDetailPage = (props) => {
@@ -50,10 +52,11 @@ const actorMovies = actedIn?.cast || [];
         <>
           <PageTemplate actor={actor}>
             <ActorDetails actor={actor} />
-
-            <h2>Actor Movies</h2>
-              <ActorMovies actors={actorMovies} />
           </PageTemplate>
+          <Typography variant="h4" component="h3">
+            Actor Movies
+          </Typography>
+          <ActorMovies actors={actorMovies} />
         </>
       ) : (
         <p>Waiting for actor details</p>
